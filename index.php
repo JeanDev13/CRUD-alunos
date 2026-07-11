@@ -59,7 +59,7 @@
                     <td> <?= $aluno["data_nasc"] ?></td>      
                 
                 <td>
-                    <a href="viwer.php?id=<?= $aluno["id"] ?>" class="btn btn-secondary btn-sm">
+                    <a href="registrations/viewer.php?id=<?= $aluno["id"] ?>" class="btn btn-primary btn-sm">
                         Visualizar
                     </a>
                     <a href="registrations/update.php?id=<?= $aluno["id"]?>" class="btn btn-warning btn-sm">

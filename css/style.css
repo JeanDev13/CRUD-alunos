@@ -1,0 +1,237 @@
+/* ===================================
+   CRUDCURSO - Dark Mode v2
+   =================================== */
+
+:root {
+    --bg-primary: #10121a;
+    --bg-secondary: #171a24;
+    --bg-card: #1b1e29;
+    --bg-elevated: #21252f;
+    --accent: #7c8cf8;
+    --accent-soft: rgba(124, 140, 248, 0.15);
+    --text-primary: #eceef5;
+    --text-muted: #8b8fa3;
+    --border-color: #2a2e3b;
+    --success: #3ecf8e;
+    --danger: #f16063;
+    --warning: #f6c453;
+    --info: #56b6f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+/* Card do título principal */
+.container .card.shadow.p-4:has(h1) {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+}
+
+.container .card.shadow.p-4:has(h1) h1 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+    font-size: 1.8rem;
+}
+
+/* Card genérico */
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--bg-card);
+}
+
+.card.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.form-control {
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    color: var(--text-primary);
+}
+
+.form-control:focus {
+    background-color: var(--bg-elevated);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.2rem var(--accent-soft);
+    color: var(--text-primary);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+    cursor: pointer;
+}
+
+/* Botões */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.55rem 1.3rem;
+    border: none;
+    transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: var(--success);
+    color: #0c1410;
+}
+
+.btn-secondary {
+    background-color: var(--bg-elevated);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-primary {
+    background-color: var(--info);
+    color: #0c1420;
+}
+
+.btn-warning {
+    background-color: var(--warning);
+    color: #241c05;
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: #ffffff;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.btn-secondary:hover {
+    background-color: #2a2f3d;
+}
+
+/* ===== Tabela =====
+   Bootstrap 5.3 usa variáveis internas (--bs-table-bg, --bs-table-color,
+   --bs-table-border-color) que têm prioridade sobre background-color comum.
+   Setar elas diretamente é a forma correta de sobrescrever no dark mode. */
+.table {
+    --bs-table-bg: var(--bg-card);
+    --bs-table-color: var(--text-primary);
+    --bs-table-border-color: var(--border-color);
+    --bs-table-striped-bg: var(--bg-elevated);
+    --bs-table-hover-bg: var(--bg-elevated);
+    --bs-table-hover-color: var(--text-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.table thead th {
+    --bs-table-bg: var(--bg-secondary);
+    border: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 1rem 0.9rem;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: 0.9rem;
+}
+
+/* Wrapper com cantos arredondados (a tabela sozinha não corta bem com overflow) */
+.table-responsive,
+.container > .card:has(.table) {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Alertas */
+.alert {
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+.alert-danger {
+    background-color: rgba(241, 96, 99, 0.12);
+    border-color: rgba(241, 96, 99, 0.3);
+    color: #ff9b9d;
+}
+
+.alert-warning {
+    background-color: rgba(246, 196, 83, 0.12);
+    border-color: rgba(246, 196, 83, 0.3);
+    color: #ffd98a;
+}
+
+/* Página de visualização */
+.card p {
+    font-size: 1.02rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.9rem;
+    color: var(--text-primary);
+}
+
+.card p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.card p strong {
+    color: var(--accent);
+    display: inline-block;
+    min-width: 180px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+.table td:last-child {
+    white-space: nowrap;
+}
